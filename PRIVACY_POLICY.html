@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de privacidad — Nebari Bonsai</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px; line-height: 1.75; color: #2a2a2a;
+      background: #f5f2ee;
+    }
+
+    .wrapper { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      padding: 48px 24px 40px;
+      margin-bottom: 32px;
+    }
+    .header-badge {
+      display: inline-block;
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    .header h1 {
+      font-size: 26px; font-weight: 800;
+      color: #1b3a1b; letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .header .app-name {
+      font-size: 14px; color: #6b8c5a; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .header .meta {
+      font-size: 13px; color: #888;
+    }
+
+    /* ── Intro callout ── */
+    .intro {
+      background: #e8f0e2;
+      border-left: 4px solid #4a7c3f;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: #2d4a28;
+    }
+
+    /* ── Section cards ── */
+    .section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      border: 1px solid #e4ddd5;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0ebe4;
+    }
+    .section-icon {
+      font-size: 22px;
+      width: 40px; height: 40px;
+      background: #f0f5ed;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 17px; font-weight: 700; color: #1b3a1b;
+    }
+    .section-num {
+      font-size: 11px; color: #9aab90; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.8px;
+    }
+
+    /* ── Subsections ── */
+    .subsection {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f5f0ea;
+    }
+    .subsection:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .sub-icon {
+      font-size: 18px;
+      width: 34px; height: 34px;
+      background: #f8f5f1;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .sub-body {}
+    .sub-title {
+      font-size: 14px; font-weight: 700; color: #2d4a28;
+      margin-bottom: 4px;
+    }
+    .sub-text { font-size: 14px; color: #555; line-height: 1.65; }
+    .sub-text p { margin-bottom: 8px; }
+    .sub-text p:last-child { margin-bottom: 0; }
+
+    /* ── Provider grid ── */
+    .provider-grid { display: flex; flex-direction: column; gap: 10px; }
+    .provider-row {
+      background: #faf8f5;
+      border: 1px solid #ede8e0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .provider-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .provider-info {}
+    .provider-name { font-size: 14px; font-weight: 700; color: #1b3a1b; margin-bottom: 2px; }
+    .provider-desc { font-size: 13px; color: #666; }
+    .provider-link { font-size: 12px; color: #4a7c3f; text-decoration: none; }
+    .provider-link:hover { text-decoration: underline; }
+
+    /* ── Lists ── */
+    .check-list { list-style: none; padding: 0; }
+    .check-list li {
+      font-size: 14px; color: #444; padding: 5px 0 5px 24px;
+      position: relative;
+    }
+    .check-list li::before {
+      content: '✓';
+      position: absolute; left: 0;
+      color: #4a7c3f; font-weight: 700; font-size: 13px;
+    }
+
+    .dot-list { list-style: none; padding: 0; }
+    .dot-list li {
+      font-size: 14px; color: #444; padding: 4px 0 4px 20px;
+      position: relative;
+    }
+    .dot-list li::before {
+      content: '·';
+      position: absolute; left: 6px;
+      color: #4a7c3f; font-weight: 900; font-size: 18px; line-height: 1.2;
+    }
+    .dot-list li strong { color: #2d4a28; }
+
+    /* ── Rights grid ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    @media (max-width: 480px) { .rights-grid { grid-template-columns: 1fr; } }
+    .right-chip {
+      background: #f0f5ed;
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .right-chip-title { font-size: 13px; font-weight: 700; color: #1b3a1b; margin-bottom: 2px; }
+    .right-chip-desc { font-size: 12px; color: #666; }
+
+    /* ── Steps ── */
+    .steps { display: flex; flex-direction: column; gap: 10px; }
+    .step {
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .step-num {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: #1b3a1b; color: #fff;
+      font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .step-text { font-size: 14px; color: #444; line-height: 1.6; }
+
+    /* ── Contact block ── */
+    .contact-block {
+      background: #f0f5ed;
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .contact-icon { font-size: 28px; }
+    .contact-label { font-size: 13px; color: #6b8c5a; font-weight: 600; margin-bottom: 2px; }
+    .contact-value { font-size: 15px; color: #1b3a1b; font-weight: 700; }
+
+    p { margin-bottom: 10px; font-size: 14px; color: #555; }
+    p:last-child { margin-bottom: 0; }
+    a { color: #4a7c3f; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 12px; color: #aaa;
+      padding-top: 24px;
+      border-top: 1px solid #e4ddd5;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">🌿</div>
+    <div class="app-name">Nebari Bonsai</div>
+    <h1>Política de privacidad</h1>
+    <div class="meta">Última actualización: 30 de mayo de 2026 &nbsp;·&nbsp; Versión 1.1</div>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro">
+    Nebari Bonsai es una aplicación <strong>local-first</strong>: tus árboles, tareas, eventos y fotos viven en tu dispositivo. Solo algunos servicios opcionales o de pago implican conexión exterior, y siempre bajo tu control.
+  </div>
+
+
+  <!-- 1. Responsable -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div>
+      <div>
+        <div class="section-num">Sección 1</div>
+        <div class="section-title">Responsable del tratamiento</div>
+      </div>
+    </div>
+    <p>
+      El responsable del tratamiento de los datos personales recogidos a través de
+      <strong>Nebari Bonsai</strong> es:
+    </p>
+    <ul class="dot-list" style="margin-top:10px;">
+      <li><strong>Entidad:</strong> Nebari Bonsai</li>
+      <li><strong>Contacto:</strong> a través del formulario disponible en los ajustes de la aplicación (sección <em>Acerca de → Ayuda</em>)</li>
+    </ul>
+  </div>
+
+
+  <!-- 2. Datos -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <div>
+        <div class="section-num">Sección 2</div>
+        <div class="section-title">Datos que tratamos y para qué</div>
+      </div>
+    </div>
+
+    <!-- 2.1 Cuenta -->
+    <div class="subsection">
+      <div class="sub-icon">👤</div>
+      <div class="sub-body">
+        <div class="sub-title">Cuenta de acceso</div>
+        <div class="sub-text">
+          <p>El acceso a la aplicación se realiza mediante Google Sign-In. Se almacena el correo electrónico, el nombre
+          de visualización y el identificador único de usuario asociado a tu cuenta de Google.</p>
+          <p>Estos datos se usan exclusivamente para identificarte dentro de la app y vincular
+          tu información a tu cuenta.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.2 Colección local -->
+    <div class="subsection">
+      <div class="sub-icon">🌳</div>
+      <div class="sub-body">
+        <div class="sub-title">Tu colección de bonsais</div>
+        <div class="sub-text">
+          <p>Toda la información que introduces sobre tus árboles — nombre, especie, estilo, ubicación,
+          fechas de cuidados, eventos, tareas y notas — se almacena <strong>únicamente en tu
+          dispositivo</strong>. No se envía a ningún servidor de Nebari Bonsai
+          ni se comparte con terceros salvo en los casos indicados a continuación.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.3 Fotos -->
+    <div class="subsection">
+      <div class="sub-icon">📸</div>
+      <div class="sub-body">
+        <div class="sub-title">Copia de seguridad en la nube (plan Plus)</div>
+        <div class="sub-text">
+          <p>Los usuarios del plan Plus disponen de una copia de seguridad en la nube que permite la recuperación de toda la información introducida ante cualquier incidente con la app o con el dispositivo. Con este servicio el usuario tiene garantizado el acceso a toda la información pasada, presente y futura de su jardín.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.4 Meteorología -->
+    <div class="subsection">
+      <div class="sub-icon">🌤️</div>
+      <div class="sub-body">
+        <div class="sub-title">Previsión meteorológica</div>
+        <div class="sub-text">
+          <p>Al indicar la ubicación de tu jardín, la app consulta a <strong>Open-Meteo</strong> para ofrecerte la previsión del tiempo y alertas de temperatura adaptadas a tus árboles. Open-Meteo no requiere registro y no almacena datos de usuario. La ubicación se guarda solo en tu dispositivo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.6 IA -->
+    <div class="subsection">
+      <div class="sub-icon">✨</div>
+      <div class="sub-body">
+        <div class="sub-title">Conoce al Maestro Takumi</div>
+        <div class="sub-text">
+          <p>Takumi es mucho más que un asistente de inteligencia artificial. Es un maestro especializado exclusivamente en el arte y cultivo del bonsái, diseñado para acompañarte en la evolución de tu jardín y ayudarte a tomar mejores decisiones en cada etapa.</p>
+          <p>A diferencia de una IA genérica, Takumi no se limita a responder preguntas. Analiza las características de cada árbol, estudia su historial, recuerda los trabajos realizados, interpreta su evolución y tiene en cuenta toda la información registrada en la aplicación para ofrecer recomendaciones realmente personalizadas.</p>
+          <p>Takumi también conoce los productos y materiales disponibles en tu inventario, por lo que sus sugerencias se adaptan a los recursos que ya tienes a tu disposición, ayudándote a aprovecharlos de la forma más adecuada.</p>
+          <p>Con el paso del tiempo, Takumi aprende junto a ti. Comprende mejor tus árboles, reconoce tus hábitos de cultivo, detecta posibles errores antes de que se conviertan en problemas y te guía para desarrollar todo el potencial de tu colección.</p>
+          <p>Tu experiencia, tus árboles y el conocimiento de Takumi se combinan para crear una forma de cultivo más inteligente, personalizada y eficaz.</p>
+          <p style="margin-top:4px; color: #888;">Las consultas a Takumi se procesan de forma segura a través de servidores en Europa y no se comparten con terceros ni se utilizan para entrenar modelos de IA.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.7 Pagos -->
+    <div class="subsection">
+      <div class="sub-icon">💳</div>
+      <div class="sub-body">
+        <div class="sub-title">Suscripciones y pagos</div>
+        <div class="sub-text">
+          <p>Las suscripciones y los pagos se gestionan directamente a través de <strong>Google Play</strong>. Nebari Bonsai no almacena datos de pago ni de tarjeta.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- 3. Terceros -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🌐</div>
+      <div>
+        <div class="section-num">Sección 3</div>
+        <div class="section-title">Terceros y transferencias internacionales</div>
+      </div>
+    </div>
+    <p style="margin-bottom:14px;">Algunos proveedores están fuera del Espacio Económico Europeo. Las transferencias se amparan en cláusulas contractuales tipo aprobadas por la Comisión Europea u otros mecanismos legales equivalentes.</p>
+
+    <div class="provider-grid">
+
+      <div class="provider-row">
+        <div class="provider-icon">🔑</div>
+        <div class="provider-info">
+          <div class="provider-name">Google LLC — Firebase</div>
+          <div class="provider-desc">Autenticación, Cloud Functions, Firestore (cuotas IA y caché de diagnósticos) · EE. UU. / Europa (europe-west1)</div>
+          <a class="provider-link" href="https://firebase.google.com/support/privacy" target="_blank">↗ Política de privacidad Firebase</a>
+        </div>
+      </div>
+
+      <div class="provider-row">
+        <div class="provider-icon">📸</div>
+        <div class="provider-info">
+          <div class="provider-name">Cloudinary Ltd.</div>
+          <div class="provider-desc">Almacenamiento de fotos en la nube (plan Plus) · EE. UU. (CDN global)</div>
+          <a class="provider-link" href="https://cloudinary.com/privacy" target="_blank">↗ Política de privacidad Cloudinary</a>
+        </div>
+      </div>
+
+      <div class="provider-row">
+        <div class="provider-icon">✨</div>
+        <div class="provider-info">
+          <div class="provider-name">Anthropic, PBC — Claude</div>
+          <div class="provider-desc">Procesamiento de funciones IA Takumi · EE. UU.</div>
+          <a class="provider-link" href="https://www.anthropic.com/privacy" target="_blank">↗ Política de privacidad Anthropic</a>
+        </div>
+      </div>
+
+      <div class="provider-row">
+        <div class="provider-icon">💳</div>
+        <div class="provider-info">
+          <div class="provider-name">Google LLC — Google Play</div>
+          <div class="provider-desc">Procesamiento de pagos y suscripciones · EE. UU.</div>
+          <a class="provider-link" href="https://policies.google.com/privacy" target="_blank">↗ Política de privacidad Google</a>
+        </div>
+      </div>
+
+      <div class="provider-row">
+        <div class="provider-icon">🔄</div>
+        <div class="provider-info">
+          <div class="provider-name">RevenueCat, Inc.</div>
+          <div class="provider-desc">Gestión del estado de suscripción y entitlements · EE. UU.</div>
+          <a class="provider-link" href="https://www.revenuecat.com/privacy" target="_blank">↗ Política de privacidad RevenueCat</a>
+        </div>
+      </div>
+
+      <div class="provider-row">
+        <div class="provider-icon">🌤️</div>
+        <div class="provider-info">
+          <div class="provider-name">Open-Meteo (Zipperbrain GmbH)</div>
+          <div class="provider-desc">Previsión meteorológica · Suiza / UE</div>
+          <a class="provider-link" href="https://open-meteo.com/en/terms" target="_blank">↗ Términos de uso Open-Meteo</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- 4. Base legal -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⚖️</div>
+      <div>
+        <div class="section-num">Sección 4</div>
+        <div class="section-title">Base legal del tratamiento (RGPD)</div>
+      </div>
+    </div>
+    <ul class="dot-list">
+      <li><strong>Ejecución del contrato</strong> (art. 6.1.b): autenticación, funcionamiento de la app, gestión de suscripción.</li>
+      <li><strong>Consentimiento</strong> (art. 6.1.a): subida de fotos a la nube, uso de funciones IA, ubicación del jardín.</li>
+      <li><strong>Interés legítimo</strong> (art. 6.1.f): seguridad, prevención del abuso de cuotas y mejora del servicio.</li>
+    </ul>
+  </div>
+
+
+  <!-- 5. Conservación -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🗓️</div>
+      <div>
+        <div class="section-num">Sección 5</div>
+        <div class="section-title">Plazo de conservación</div>
+      </div>
+    </div>
+    <ul class="dot-list">
+      <li><strong>Datos locales en el dispositivo:</strong> hasta que el usuario los elimine o desinstale la app.</li>
+      <li><strong>Cuenta Firebase:</strong> mientras esté activa. Al eliminarla, los datos asociados (cuotas, caché IA) se borran en un plazo máximo de 90 días.</li>
+      <li><strong>Fotos en Cloudinary:</strong> mientras el plan Plus esté activo o hasta que el usuario las elimine. Al cancelar la cuenta, el usuario puede solicitar su eliminación.</li>
+      <li><strong>Datos de suscripción (Google Play):</strong> según la política de retención de Google.</li>
+      <li><strong>Caché de diagnóstico IA (Firestore):</strong> 7 días desde la fecha del análisis.</li>
+    </ul>
+  </div>
+
+
+  <!-- 6. Derechos -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🛡️</div>
+      <div>
+        <div class="section-num">Sección 6</div>
+        <div class="section-title">Tus derechos</div>
+      </div>
+    </div>
+    <p style="margin-bottom:14px;">De acuerdo con el RGPD puedes ejercer en cualquier momento:</p>
+    <div class="rights-grid">
+      <div class="right-chip">
+        <div class="right-chip-title">Acceso</div>
+        <div class="right-chip-desc">Saber qué datos se tratan sobre ti.</div>
+      </div>
+      <div class="right-chip">
+        <div class="right-chip-title">Rectificación</div>
+        <div class="right-chip-desc">Corregir datos inexactos o incompletos.</div>
+      </div>
+      <div class="right-chip">
+        <div class="right-chip-title">Supresión</div>
+        <div class="right-chip-desc">Solicitar la eliminación de tus datos.</div>
+      </div>
+      <div class="right-chip">
+        <div class="right-chip-title">Limitación</div>
+        <div class="right-chip-desc">Restringir el tratamiento en determinadas circunstancias.</div>
+      </div>
+      <div class="right-chip">
+        <div class="right-chip-title">Portabilidad</div>
+        <div class="right-chip-desc">Recibir tus datos en formato estructurado.</div>
+      </div>
+      <div class="right-chip">
+        <div class="right-chip-title">Oposición</div>
+        <div class="right-chip-desc">Oponerte al tratamiento por interés legítimo.</div>
+      </div>
+    </div>
+    <p style="margin-top:14px;">
+      Puedes ejercer estos derechos desde los ajustes de la aplicación o contactando con nosotros (sección 8).
+      Las solicitudes se atenderán en un plazo máximo de 30 días.
+    </p>
+    <p>
+      Si consideras que el tratamiento no es conforme a la normativa, puedes reclamar ante la
+      <strong>Agencia Española de Protección de Datos</strong>
+      (<a href="https://www.aepd.es" target="_blank">www.aepd.es</a>).
+    </p>
+  </div>
+
+
+  <!-- 7. Seguridad -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <div>
+        <div class="section-num">Sección 7</div>
+        <div class="section-title">Seguridad</div>
+      </div>
+    </div>
+    <ul class="check-list">
+      <li>Todas las comunicaciones con servicios externos se realizan mediante TLS.</li>
+      <li>La autenticación se gestiona mediante Firebase con tokens de corta duración.</li>
+      <li>Las claves secretas de los servicios de terceros (IA, imágenes) residen únicamente en el servidor y nunca se incluyen en el código de la app.</li>
+      <li>Las reglas de Firestore impiden el acceso directo desde clientes: solo la Cloud Function puede leer y escribir datos de cuota y caché.</li>
+      <li>Las fotos enviadas para análisis IA se comprimen y se eliminan los metadatos de geolocalización EXIF antes de salir del dispositivo.</li>
+      <li>App Check de Firebase protege las Cloud Functions frente a llamadas no autorizadas.</li>
+    </ul>
+  </div>
+
+
+  <!-- 8. Menores -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">👶</div>
+      <div>
+        <div class="section-num">Sección 8</div>
+        <div class="section-title">Menores de edad</div>
+      </div>
+    </div>
+    <p>
+      Nebari Bonsai no está dirigida a menores de 16 años y no recopilamos conscientemente
+      datos de menores. Si tienes conocimiento de que un menor ha facilitado sus datos,
+      te rogamos que te pongas en contacto con nosotros para proceder a su eliminación.
+    </p>
+  </div>
+
+
+  <!-- 9. Cambios -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <div>
+        <div class="section-num">Sección 9</div>
+        <div class="section-title">Cambios en esta política</div>
+      </div>
+    </div>
+    <p>
+      Esta política puede actualizarse para reflejar cambios en la aplicación o en la normativa.
+      En caso de cambios sustanciales, se notificará mediante un aviso en la propia app.
+      La fecha de «última actualización» del encabezado siempre indica la versión vigente.
+    </p>
+  </div>
+
+
+  <!-- 10. Contacto -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">✉️</div>
+      <div>
+        <div class="section-num">Sección 10</div>
+        <div class="section-title">Contacto</div>
+      </div>
+    </div>
+    <p style="margin-bottom:14px;">
+      Para cualquier consulta relacionada con esta política o el tratamiento de tus datos
+      personales, puedes contactar con nosotros desde la propia aplicación:
+    </p>
+    <div class="contact-block">
+      <div class="contact-icon">🌿</div>
+      <div>
+        <div class="contact-label">Dónde encontrarnos</div>
+        <div class="contact-value">Ajustes → Acerca de → Ayuda</div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    © 2026 Nebari Bonsai &nbsp;·&nbsp; Todos los derechos reservados
+  </footer>
+
+</div>
+</body>
+</html>
