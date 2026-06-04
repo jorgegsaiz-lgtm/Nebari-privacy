@@ -213,7 +213,7 @@
     <div class="header-badge">🌿</div>
     <div class="app-name">Nebari Bonsai</div>
     <h1>Política de privacidad</h1>
-    <div class="meta">Última actualización: 2 de junio de 2026 &nbsp;·&nbsp; Versión 1.2</div>
+    <div class="meta">Última actualización: 4 de junio de 2026 &nbsp;·&nbsp; Versión 1.3</div>
   </div>
 
   <!-- Intro -->
@@ -280,13 +280,19 @@
       </div>
     </div>
 
-    <!-- 2.3 Fotos -->
+    <!-- 2.3 Copia de seguridad -->
     <div class="subsection">
-      <div class="sub-icon">📸</div>
+      <div class="sub-icon">☁️</div>
       <div class="sub-body">
         <div class="sub-title">Copia de seguridad en la nube (plan Plus)</div>
         <div class="sub-text">
-          <p>Los usuarios del plan Plus disponen de una copia de seguridad en la nube que permite la recuperación de toda la información introducida ante cualquier incidente con la app o con el dispositivo. Con este servicio el usuario tiene garantizado el acceso a toda la información pasada, presente y futura de su jardín.</p>
+          <p>Los usuarios del plan Plus disponen de una copia de seguridad en la nube que permite recuperar toda la información del jardín ante cualquier incidente con la app o el dispositivo.</p>
+          <p>Los datos se almacenan en dos servicios distintos según su naturaleza:</p>
+          <ul class="dot-list" style="margin-top:6px;">
+            <li><strong>Datos del jardín</strong> (árboles, tareas, eventos, inventario): fichero JSON cifrado en tránsito, almacenado en <strong>Firebase Storage</strong> (Google LLC), accesible únicamente mediante autenticación del propio usuario.</li>
+            <li><strong>Fotos</strong>: imágenes comprimidas almacenadas en <strong>Cloudinary Ltd.</strong>, vinculadas al identificador de usuario.</li>
+          </ul>
+          <p style="margin-top:8px;">Ningún dato del backup es accesible por terceros ni por el equipo de Nebari Bonsai.</p>
         </div>
       </div>
     </div>
@@ -306,14 +312,19 @@
     <div class="subsection">
       <div class="sub-icon">✨</div>
       <div class="sub-body">
-        <div class="sub-title">Conoce al Maestro Takumi</div>
+        <div class="sub-title">Funciones de inteligencia artificial — Takumi</div>
         <div class="sub-text">
-          <p>Takumi es mucho más que un asistente de inteligencia artificial. Es un maestro especializado exclusivamente en el arte y cultivo del bonsái, diseñado para acompañarte en la evolución de tu jardín y ayudarte a tomar mejores decisiones en cada etapa.</p>
-          <p>A diferencia de una IA genérica, Takumi no se limita a responder preguntas. Analiza las características de cada árbol, estudia su historial, recuerda los trabajos realizados, interpreta su evolución y tiene en cuenta toda la información registrada en la aplicación para ofrecer recomendaciones realmente personalizadas.</p>
-          <p>Takumi también conoce los productos y materiales disponibles en tu inventario, por lo que sus sugerencias se adaptan a los recursos que ya tienes a tu disposición, ayudándote a aprovecharlos de la forma más adecuada.</p>
-          <p>Con el paso del tiempo, Takumi aprende junto a ti. Comprende mejor tus árboles, reconoce tus hábitos de cultivo, detecta posibles errores antes de que se conviertan en problemas y te guía para desarrollar todo el potencial de tu colección.</p>
-          <p>Tu experiencia, tus árboles y el conocimiento de Takumi se combinan para crear una forma de cultivo más inteligente, personalizada y eficaz.</p>
-          <p style="margin-top:4px; color: #888;">Las consultas a Takumi se procesan de forma segura a través de servidores en Europa y no se comparten con terceros ni se utilizan para entrenar modelos de IA.</p>
+          <p>Takumi es el asistente de IA especializado en bonsái integrado en la app (plan Plus). Todas las llamadas a la IA se canalizan a través de <strong>Firebase Cloud Functions en Europa (europe-west1)</strong> y utilizan el modelo <strong>Claude de Anthropic</strong>. Los datos nunca se envían directamente desde el dispositivo a Anthropic.</p>
+          <p><strong>Qué datos se envían según la función:</strong></p>
+          <ul class="dot-list" style="margin-top:6px; margin-bottom:10px;">
+            <li><strong>Diagnóstico fotográfico:</strong> foto comprimida (máx. 2 048 px, sin metadatos EXIF), nombre de la especie, síntomas indicados y época del año.</li>
+            <li><strong>Coach de cultivo (chat):</strong> mensaje del usuario, historial resumido de conversaciones previas con Takumi y datos del árbol seleccionado (especie, cuidados recientes, tareas pendientes, inventario relevante).</li>
+            <li><strong>Sugerencia de tareas:</strong> perfil del árbol y fecha actual.</li>
+            <li><strong>Recomendación de productos:</strong> especie, tipo de cuidado y productos disponibles en el inventario del usuario.</li>
+          </ul>
+          <p><strong>Memoria del asistente:</strong> para que Takumi recuerde el contexto entre sesiones, se almacena en <strong>Firestore</strong> un resumen estructurado que incluye: patrones de cuidado detectados, observaciones relevantes de conversaciones anteriores y preferencias del usuario. Este resumen no contiene fotos ni texto literal de los mensajes. Puedes eliminarlo en cualquier momento desde Ajustes.</p>
+          <p><strong>Caché de diagnósticos:</strong> los resultados de diagnóstico se guardan en Firestore durante <strong>7 días</strong> para evitar repetir el análisis ante consultas idénticas. Transcurrido ese plazo se eliminan automáticamente.</p>
+          <p style="margin-top:8px; color:#666;">Las consultas no se comparten con terceros ni se utilizan para entrenar modelos de IA.</p>
         </div>
       </div>
     </div>
@@ -349,7 +360,7 @@
         <div class="provider-icon">🔑</div>
         <div class="provider-info">
           <div class="provider-name">Google LLC — Firebase</div>
-          <div class="provider-desc">Autenticación, Cloud Functions, Firestore (cuotas IA, caché de diagnósticos y memoria del asistente Takumi) · EE. UU. / Europa (europe-west1)</div>
+          <div class="provider-desc">Autenticación · Cloud Functions (europe-west1) · Firestore (cuotas IA, caché de diagnósticos y memoria del asistente Takumi) · Firebase Storage (copias de seguridad de datos del jardín, plan Plus) · EE. UU. / Europa</div>
           <a class="provider-link" href="https://firebase.google.com/support/privacy" target="_blank">↗ Política de privacidad Firebase</a>
         </div>
       </div>
@@ -358,7 +369,7 @@
         <div class="provider-icon">📸</div>
         <div class="provider-info">
           <div class="provider-name">Cloudinary Ltd.</div>
-          <div class="provider-desc">Almacenamiento de fotos en la nube (plan Plus) · EE. UU. (CDN global)</div>
+          <div class="provider-desc">Almacenamiento de fotos de bonsáis y productos en la nube (plan Plus) · EE. UU. (CDN global)</div>
           <a class="provider-link" href="https://cloudinary.com/privacy" target="_blank">↗ Política de privacidad Cloudinary</a>
         </div>
       </div>
@@ -433,9 +444,10 @@
       <li><strong>Datos locales en el dispositivo:</strong> hasta que el usuario los elimine o desinstale la app.</li>
       <li><strong>Cuenta Firebase:</strong> mientras esté activa. Al eliminarla, los datos asociados (cuotas, caché IA) se borran en un plazo máximo de 90 días.</li>
       <li><strong>Fotos en Cloudinary:</strong> mientras el plan Plus esté activo o hasta que el usuario las elimine. Al cancelar la cuenta, el usuario puede solicitar su eliminación.</li>
+      <li><strong>Copias de seguridad de datos en Firebase Storage:</strong> mientras el plan Plus esté activo o hasta que el usuario las elimine. Al cancelar la cuenta, el usuario puede solicitar su eliminación contactando con nosotros.</li>
       <li><strong>Datos de suscripción (Google Play):</strong> según la política de retención de Google.</li>
-      <li><strong>Caché de diagnóstico IA (Firestore):</strong> 7 días desde la fecha del análisis.</li>
-      <li><strong>Memoria del asistente Takumi (Firestore):</strong> mientras la cuenta esté activa. El usuario puede eliminarla desde los ajustes de la aplicación.</li>
+      <li><strong>Caché de diagnóstico IA (Firestore):</strong> 7 días desde la fecha del análisis; eliminación automática.</li>
+      <li><strong>Memoria del asistente Takumi (Firestore):</strong> mientras la cuenta esté activa. El usuario puede eliminarla en cualquier momento desde Ajustes.</li>
     </ul>
   </div>
 
@@ -502,6 +514,7 @@
       <li>La autenticación se gestiona mediante Firebase con tokens de corta duración.</li>
       <li>Las claves secretas de los servicios de terceros (IA, imágenes) residen únicamente en el servidor y nunca se incluyen en el código de la app.</li>
       <li>Las reglas de Firestore impiden el acceso directo desde clientes: solo la Cloud Function puede leer y escribir datos de cuota y caché.</li>
+      <li>Las reglas de Firebase Storage restringen el acceso a los ficheros de backup por usuario autenticado: cada usuario solo puede leer y escribir su propio índice y su propia copia de seguridad.</li>
       <li>Las fotos enviadas para análisis IA se comprimen y se eliminan los metadatos de geolocalización EXIF antes de salir del dispositivo.</li>
       <li>App Check de Firebase protege las Cloud Functions frente a llamadas no autorizadas.</li>
     </ul>
@@ -553,20 +566,31 @@
     </div>
     <p style="margin-bottom:14px;">
       Para cualquier consulta relacionada con esta política o el tratamiento de tus datos
-      personales, puedes contactar con nosotros desde la propia aplicación:
+      personales, incluyendo el ejercicio de derechos RGPD, puedes contactar con nosotros
+      por cualquiera de estas vías:
     </p>
+    <div class="contact-block" style="margin-bottom:10px;">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Correo electrónico</div>
+        <div class="contact-value"><a href="mailto:jorgegsaiz@gmail.com" style="color:#1b3a1b;">jorgegsaiz@gmail.com</a></div>
+      </div>
+    </div>
     <div class="contact-block">
       <div class="contact-icon">🌿</div>
       <div>
-        <div class="contact-label">Dónde encontrarnos</div>
+        <div class="contact-label">Desde la aplicación</div>
         <div class="contact-value">Ajustes → Acerca de → Ayuda</div>
       </div>
     </div>
+    <p style="margin-top:12px; font-size:13px; color:#888;">
+      Las solicitudes de ejercicio de derechos se atenderán en un plazo máximo de 30 días naturales desde la recepción.
+    </p>
   </div>
 
 
   <footer>
-    © 2026 Nebari Bonsai &nbsp;·&nbsp; Todos los derechos reservados
+    © 2026 Nebari Bonsai &nbsp;·&nbsp; Todos los derechos reservados &nbsp;·&nbsp; <a href="mailto:jorgegsaiz@gmail.com">jorgegsaiz@gmail.com</a>
   </footer>
 
 </div>
